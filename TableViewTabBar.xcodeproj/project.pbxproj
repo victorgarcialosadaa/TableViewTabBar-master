@@ -8,20 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		330C816A21CD122200E2695C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C816921CD122200E2695C /* AppDelegate.swift */; };
-		330C816C21CD122200E2695C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C816B21CD122200E2695C /* ViewController.swift */; };
 		330C816F21CD122200E2695C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330C816D21CD122200E2695C /* Main.storyboard */; };
 		330C817121CD122400E2695C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330C817021CD122400E2695C /* Assets.xcassets */; };
 		330C817421CD122400E2695C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330C817221CD122400E2695C /* LaunchScreen.storyboard */; };
 		330C817F21CD122400E2695C /* APITableViewTabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C817E21CD122400E2695C /* APITableViewTabBarTests.swift */; };
-		330C818A21CD122400E2695C /* APITableViewTabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C818921CD122400E2695C /* APITableViewTabBarUITests.swift */; };
 		330C819821CD346100E2695C /* UITabBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C819721CD346100E2695C /* UITabBarCustom.swift */; };
-		FA27240C221475F00033978B /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27240B221475F00033978B /* tableViewController.swift */; };
 		FA622DA021CE42D5000181DA /* DogBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622D9F21CE42D5000181DA /* DogBreed.swift */; };
 		FA622DA221CE438C000181DA /* ViewControllerPokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622DA121CE438C000181DA /* ViewControllerPokedex.swift */; };
 		FA622DA421CE43A3000181DA /* TableViewCellPokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622DA321CE43A3000181DA /* TableViewCellPokedex.swift */; };
-		FA622DA621CE49F6000181DA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622DA521CE49F6000181DA /* Tools.swift */; };
 		FAE6838522149BDC00D75045 /* dogsBreeds.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAE6838422149BDC00D75045 /* dogsBreeds.csv */; };
-		FAE6838D22149F3400D75045 /* ReadCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6838C22149F3300D75045 /* ReadCSV.swift */; };
 		FAE6838F2214A09700D75045 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6838E2214A09700D75045 /* csv.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,25 +40,18 @@
 /* Begin PBXFileReference section */
 		330C816621CD122200E2695C /* TableViewTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330C816921CD122200E2695C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		330C816B21CD122200E2695C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		330C816E21CD122200E2695C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		330C817021CD122400E2695C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330C817321CD122400E2695C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		330C817521CD122400E2695C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		330C817521CD122400E2695C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		330C817A21CD122400E2695C /* TableViewTabBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewTabBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		330C817E21CD122400E2695C /* APITableViewTabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITableViewTabBarTests.swift; sourceTree = "<group>"; };
-		330C818021CD122400E2695C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		330C818521CD122400E2695C /* TableViewTabBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewTabBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		330C818921CD122400E2695C /* APITableViewTabBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITableViewTabBarUITests.swift; sourceTree = "<group>"; };
-		330C818B21CD122400E2695C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		330C819721CD346100E2695C /* UITabBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarCustom.swift; sourceTree = "<group>"; };
-		FA27240B221475F00033978B /* tableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 		FA622D9F21CE42D5000181DA /* DogBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreed.swift; sourceTree = "<group>"; };
 		FA622DA121CE438C000181DA /* ViewControllerPokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPokedex.swift; sourceTree = "<group>"; };
 		FA622DA321CE43A3000181DA /* TableViewCellPokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellPokedex.swift; sourceTree = "<group>"; };
-		FA622DA521CE49F6000181DA /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		FAE6838422149BDC00D75045 /* dogsBreeds.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dogsBreeds.csv; sourceTree = "<group>"; };
-		FAE6838C22149F3300D75045 /* ReadCSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadCSV.swift; path = "../../Downloads/ImportCSV-master/ImportCSV/Tools/ReadCSV.swift"; sourceTree = "<group>"; };
 		FAE6838E2214A09700D75045 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,16 +83,16 @@
 		330C815D21CD122200E2695C = {
 			isa = PBXGroup;
 			children = (
-				FA27240B221475F00033978B /* tableViewController.swift */,
-				FA622DA521CE49F6000181DA /* Tools.swift */,
+				330C816921CD122200E2695C /* AppDelegate.swift */,
 				FA622DA321CE43A3000181DA /* TableViewCellPokedex.swift */,
 				FA622DA121CE438C000181DA /* ViewControllerPokedex.swift */,
-				FAE683902214A0A100D75045 /* Libraries */,
 				FA622D9F21CE42D5000181DA /* DogBreed.swift */,
-				FAE6838C22149F3300D75045 /* ReadCSV.swift */,
-				330C816821CD122200E2695C /* APITableViewTabBar */,
+				330C819721CD346100E2695C /* UITabBarCustom.swift */,
+				330C816D21CD122200E2695C /* Main.storyboard */,
+				330C817221CD122400E2695C /* LaunchScreen.storyboard */,
+				330C817021CD122400E2695C /* Assets.xcassets */,
+				FAE683902214A0A100D75045 /* Libraries */,
 				330C817D21CD122400E2695C /* APITableViewTabBarTests */,
-				330C818821CD122400E2695C /* APITableViewTabBarUITests */,
 				330C816721CD122200E2695C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,36 +107,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		330C816821CD122200E2695C /* APITableViewTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				330C816921CD122200E2695C /* AppDelegate.swift */,
-				330C816B21CD122200E2695C /* ViewController.swift */,
-				330C816D21CD122200E2695C /* Main.storyboard */,
-				330C817021CD122400E2695C /* Assets.xcassets */,
-				330C817221CD122400E2695C /* LaunchScreen.storyboard */,
-				330C817521CD122400E2695C /* Info.plist */,
-				330C819721CD346100E2695C /* UITabBarCustom.swift */,
-			);
-			path = APITableViewTabBar;
-			sourceTree = "<group>";
-		};
 		330C817D21CD122400E2695C /* APITableViewTabBarTests */ = {
 			isa = PBXGroup;
 			children = (
+				330C817521CD122400E2695C /* Info.plist */,
 				330C817E21CD122400E2695C /* APITableViewTabBarTests.swift */,
-				330C818021CD122400E2695C /* Info.plist */,
 			);
 			path = APITableViewTabBarTests;
-			sourceTree = "<group>";
-		};
-		330C818821CD122400E2695C /* APITableViewTabBarUITests */ = {
-			isa = PBXGroup;
-			children = (
-				330C818921CD122400E2695C /* APITableViewTabBarUITests.swift */,
-				330C818B21CD122400E2695C /* Info.plist */,
-			);
-			path = APITableViewTabBarUITests;
 			sourceTree = "<group>";
 		};
 		FAE683902214A0A100D75045 /* Libraries */ = {
@@ -295,12 +260,8 @@
 				FA622DA421CE43A3000181DA /* TableViewCellPokedex.swift in Sources */,
 				330C819821CD346100E2695C /* UITabBarCustom.swift in Sources */,
 				FA622DA021CE42D5000181DA /* DogBreed.swift in Sources */,
-				FA27240C221475F00033978B /* tableViewController.swift in Sources */,
 				FAE6838F2214A09700D75045 /* csv.swift in Sources */,
 				FA622DA221CE438C000181DA /* ViewControllerPokedex.swift in Sources */,
-				FA622DA621CE49F6000181DA /* Tools.swift in Sources */,
-				FAE6838D22149F3400D75045 /* ReadCSV.swift in Sources */,
-				330C816C21CD122200E2695C /* ViewController.swift in Sources */,
 				330C816A21CD122200E2695C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330C818A21CD122400E2695C /* APITableViewTabBarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

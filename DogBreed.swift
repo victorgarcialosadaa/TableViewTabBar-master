@@ -24,8 +24,11 @@ class dogBreed : CustomStringConvertible{
     }
     func getName() -> String {
         return name}
+    
+    var description : String {
+        return "Id:\(id),Name:\(name),Country:\(country),Image:\(image)"
     }
-//public var description: String{
-    //"id:\(id),name:\(name),country:\(country),image:\(image)"
-//}
+    
+}
+
 

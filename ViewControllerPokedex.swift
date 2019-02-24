@@ -6,139 +6,75 @@
 //  Copyright © 2018 DAM. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ViewControllerPokedex: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
+public class ReadCSV {
+    public var headers: [String] = []
+    public var rows: [Dictionary<String, String>] = []
+    public var columns = Dictionary<String, [String]>()
+    var delimiter = CharacterSet(charactersIn: ",")
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    var arrayBreeds = breeds
-    var tools:Tools = Tools()
-    //Creamos la copia del array de razas
-    var filterBreeds:[dogBreed] = [dogBreed]()
-    //Defino el booleano que determina si el usuario esta buscando o no
-    var isSearching:Bool = false
-    
-    let url = URL(string: "https://private-5ec35-pokemonswift.apiary-mock.com/pokemons")
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*print("Hay...",arrayBreeds.count)
-        return arrayBreeds.count*/
-        
-        return !isSearching ? arrayBreeds.count : filterBreeds.count
-    }
-    
-    var imagen:UIImage = UIImage()
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let myCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! TableViewCellPokedex
-        
-        myCell.namePokemon.text = arrayBreeds[indexPath.row].name
-        myCell.typePokemon.text = arrayBreeds[indexPath.row].country
- 
-        tools.getImage(imagenURL: arrayBreeds[indexPath.row].image) { (imgRecovered) -> Void in
-            if let imagen = imgRecovered {
-                DispatchQueue.main.async {
-                    myCell.imgPokemon.image = imagen
-                    return
-                }
-            }
+    public init(content: String?, delimiter: CharacterSet, encoding: UInt) throws{
+        if let csvStringToParse = content{
+            self.delimiter = delimiter
+            
+            let newline = NSCharacterSet.newlines
+            var lines: [String] = []
+            csvStringToParse.trimmingCharacters(in: newline).enumerateLines { line, stop in lines.append(line) }
+            
+            self.headers = self.parseHeaders(fromLines: lines)
+            self.rows = self.parseRows(fromLines: lines)
+            self.columns = self.parseColumns(fromLines: lines)
         }
- 
-        myCell.typeImgPokemon.image = tools.getTypeImage(type: arrayBreeds[indexPath.row].country)
-
-        return myCell
-
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+    public convenience init(contentsOfURL url: String) throws {
+        let comma = CharacterSet(charactersIn: ",")
+        let csvString: String?
+        do {
+            csvString = try String(contentsOfFile: url, encoding: String.Encoding.utf8)
+        } catch _ {
+            csvString = nil
+        };
+        try self.init(content: csvString,delimiter:comma , encoding:String.Encoding.utf8.rawValue)
+    }
+    
+    
+    func parseHeaders(fromLines lines: [String]) -> [String] {
+        return lines[0].components(separatedBy: self.delimiter)
+    }
+    
+    func parseRows(fromLines lines: [String]) -> [Dictionary<String, String>] {
+        var rows: [Dictionary<String, String>] = []
         
-    }
-    
-    
-    @IBOutlet weak var tableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        tableView.delegate = self
-        tableView.dataSource = self
-        searchBar.delegate = self
-        searchBar.placeholder = "Introduce película a buscar"
-        decodeJsonData(url: url!)
-
-    }
-    
-    
-    func decodeJsonData(url:URL){
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            guard let data = data else { return }
-            
-            do {
-                
-                let decoder = JSONDecoder()
-
-                self.arrayBreeds = try decoder.decode([dogBreed].self, from: data)
-                print("recojo de api",self.arrayBreeds.count)
-
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-            } catch let err {
-                print("Err", err)
+        for (lineNumber, line) in lines.enumerated() {
+            if lineNumber == 0 {
+                continue
             }
-            }.resume()
+            
+            var row = Dictionary<String, String>()
+            let values = line.components(separatedBy: self.delimiter)
+            for (index, header) in self.headers.enumerated() {
+                if index < values.count {
+                    row[header] = values[index]
+                } else {
+                    row[header] = ""
+                }
+            }
+            rows.append(row)
+        }
         
-        
-      
-    
-        
+        return rows
     }
     
-    //SEARCHBARCODE
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func parseColumns(fromLines lines: [String]) -> Dictionary<String, [String]> {
+        var columns = Dictionary<String, [String]>()
         
-        /*REGEX*/
+        for header in self.headers {
+            let column = self.rows.map { row in row[header] != nil ? row[header]! : "" }
+            columns[header] = column
+        }
         
-        /* FILTRADO SOLO POR EL PRINCIPIO DEL TÍTULO
-         filterMovies = listMovies.filter({$0.title.prefix(searchText.count) == searchText})
-         */
-        
-        //FILTRADO POR CUALQUIER CONTENIDO DEL TÍTULO
-        //filterMovies = listMovies.filter({$0.title.lowercased().contains(searchText.lowercased())})
-        
-        filterBreeds = arrayBreeds.filter({ (dogBreed) -> Bool in
-            return
-        dogBreed.getName().lowercased().contains(searchText.lowercased())
-        })
-        
-        
-        /*
-         //OPCION 1
-         for m in listMovies {
-         if m.title == searchText {
-         filterMovies.append(m)
-         }
-         }
-         */
-         //OPCION 2
-         filterBreeds = arrayBreeds.filter({ (dog:dogBreed) -> Bool in
-         return dog.name.contains(searchText)
-         })
-         /*
-         //OPCION 3
-         arrayBreeds = list.filter({$0.title.contains(searchText)})
- */
-        
-        isSearching = searchText != "" ? true : false
-        
-        tableView.reloadData()
+        return columns
     }
-
 }

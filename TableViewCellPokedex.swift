@@ -10,13 +10,13 @@ import UIKit
 
 class TableViewCellPokedex: UITableViewCell {
 
-    @IBOutlet weak var imgPokemon: UIImageView!
     
-    @IBOutlet weak var namePokemon: UILabel!
+
+    @IBOutlet weak var dogImg: UIImageView!
     
-    @IBOutlet weak var typePokemon: UILabel!
+    @IBOutlet weak var dogCountry: UILabel!
+    @IBOutlet weak var dogName: UILabel!
     
-    @IBOutlet weak var typeImgPokemon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
